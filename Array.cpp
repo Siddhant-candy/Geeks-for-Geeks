@@ -97,11 +97,8 @@ vector <int> left2(vector <int> arr,int d)
     
     for(i=d;i<n;i++)
     arr[i-d] = arr[i];
-
-
     for(i=0;i<d;i++)
     arr[n-d+i] = temp[n-i];
-
     
     return arr;
 }*/
@@ -182,13 +179,39 @@ void frequency(int arr[])
 }
 
 //Finding the majority element (Moorays Voting Algorithm)
-int majority()
+int findMajority(int arr[], int n)
 {
-    
+	int res = 0, count = 1;
+
+    	for(int i = 1; i < n; i++)
+    	{
+    		if(arr[res] == arr[i])
+    			count++;
+    		else 
+    			count --;
+
+    		if(count == 0)
+    		{
+    			res = i; count = 1;
+    		}
+    	}
+
+    	count = 0;
+
+    	for(int i = 0; i < n; i++)
+    		if(arr[res] == arr[i])
+    			count++;
+
+    	if(count <= n /2)
+    		res = -1;
+
+    	return res; 
+}
+
 
 main()
 {
-     int arr[6]= {10,10,10,25,30,30};
+     int arr[6]= {10,10,10,25,10,30};
 	
 	
    	/*vector <int> arr2 {8,5,0,10,0,20};
@@ -211,5 +234,5 @@ main()
 	cout << arr[i];
 	
 	cout << maxdiff(arr);*/
-	frequency(arr);
+	cout << arr[findMajority(arr,6)];
 }
