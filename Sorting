@@ -1,0 +1,45 @@
+#include <iostream>
+#include <algorithm>  // To use sort function
+#include <vector>
+using namespace std;
+
+//Sorting
+
+// Using sort function : in stl
+/*
+sort(address of 1st array element, address beyond last element of array)
+*/
+
+
+main()
+{
+    // Normal array
+    int arr[4] = {10,2,5,7};
+    sort(arr,arr+4); //ascending order
+    for(int i = 0;i<4;i++)
+    cout << arr[i] << " ";
+    
+    cout <<endl;
+    
+    sort(arr,arr+4,greater<int>()); //descending order
+    for(int i = 0;i<4;i++)
+    cout << arr[i] << " ";
+    cout <<endl;
+    
+    
+    //Vector array : Use arr.begin() and arr.end()
+    vector <int> arr2 = {10,2,5,7} ;
+    sort(arr2.begin(),arr2.end());
+    
+    for(int i = 0;i<4;i++)
+    cout << arr2[i] << " ";
+    
+    sort(arr2.begin(),arr2.end(),greater<int>());
+    cout << endl;
+    for(int i = 0;i<4;i++)
+    cout << arr2[i] << " ";
+    
+    // Our own object order
+    
+}
+
